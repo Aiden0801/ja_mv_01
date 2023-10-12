@@ -20,10 +20,21 @@ class $AssetsButtonGen {
   List<AssetGenImage> get values => [buttonimage];
 }
 
+class $AssetsVideoGen {
+  const $AssetsVideoGen();
+
+  /// File path: assets/video/freepik.mp4
+  String get freepik => 'assets/video/freepik.mp4';
+
+  /// List of all assets
+  List<String> get values => [freepik];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsButtonGen button = $AssetsButtonGen();
+  static const $AssetsVideoGen video = $AssetsVideoGen();
 }
 
 class AssetGenImage {

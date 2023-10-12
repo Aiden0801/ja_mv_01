@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class HomeBannerSection extends StatelessWidget {
@@ -15,7 +16,7 @@ class HomeBannerSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData = MediaQuery.of(context);
-    double height = queryData.size.height;
+
     double width = queryData.size.width;
     return Container(
       height: 100,
@@ -26,12 +27,13 @@ class HomeBannerSection extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Center(
-              child: Text(
-                  "This is a very long text that should break into two lines to fit the banner,This is a very long text that should break into two lines to fit the bannerThis is a very long text that should break into two lines to fit the bannerThis is a very long text that should break into two lines to fit the banner",
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(color: Colors.black)),
+              child: AutoSizeText(
+                snapshot.data ?? "",
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(color: Colors.black, fontSize: 30),
+              ),
             );
           } else if (snapshot.hasError) {
             return Text("${snapshot.error}");

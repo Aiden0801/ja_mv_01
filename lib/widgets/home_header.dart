@@ -24,7 +24,10 @@ class HomeHeaderSection extends StatelessWidget {
             ),
             onPressed: () => routeToPreviousScreen(),
           ),
-          Text('Icon'),
+          Assets.button.buttonimage.image(
+            width: 30,
+            height: 30,
+          ),
           InkWell(
               onTap: () => routeToNextScreen(),
               child: Assets.button.buttonimage.image(

@@ -3,7 +3,9 @@ import 'package:ja_mv_01/constants/theme_constants.dart';
 import 'package:ja_mv_01/gen/assets.gen.dart';
 import 'package:ja_mv_01/next_screen.dart';
 import 'package:ja_mv_01/previous_screen.dart';
+import 'package:ja_mv_01/widgets/hoeme_video_clip.dart';
 import 'package:ja_mv_01/widgets/home_banner.dart';
+import 'package:ja_mv_01/widgets/home_button_with_text.dart';
 import 'package:ja_mv_01/widgets/home_header.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,10 +60,22 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
               child: CustomPaint(
                   painter: AppBarBackgroundPainter(),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [Text('Hello')],
-                  ))),
+                  child: Container(
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 16),
+                          const HomeVideoClipSection(),
+                          const SizedBox(height: 16),
+                          Container(
+                            height: 200,
+                            color: Colors.blue,
+                          ),
+                          const SizedBox(height: 16),
+                          const Expanded(child: HomeButtonWithText()),
+                        ],
+                      )))),
         ],
       ),
     ));
